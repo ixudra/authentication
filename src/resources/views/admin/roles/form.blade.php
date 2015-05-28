@@ -1,0 +1,17 @@
+{!! Form::open(array('url' => $url, 'method' => $method, 'id' => $formId, 'class' => 'form-horizontal', 'role' => 'form')) !!}
+
+    <div class="well well-large">
+        <div class="form-group {{ $errors->has($prefix . 'name') ? 'has-error' : '' }} {{ in_array($prefix . 'name', $requiredFields) ? 'required' : '' }}">
+            {!! Form::label($prefix . 'name', Translate::recursive('members.street') .': ', array('class' => 'control-label col-lg-3')) !!}
+            <div class="col-lg-8">
+                {!! Form::text($prefix . 'name', $input[$prefix . 'name'], array('class' => 'form-control')) !!}
+                {!! $errors->first($prefix . 'name', '<span class="help-block">:message</span>') !!}
+            </div>
+        </div>
+    </div>
+    <div class="action-button">
+        {!! Form::submit(Translate::recursive('common.submit'), array('class' => 'btn btn-primary')) !!}
+        {!! HTML::linkRoute($redirectUrl, Translate::recursive('common.cancel'), $redirectParameters, array('class' => 'btn btn-default')) !!}
+    </div>
+
+{!! Form::close() !!}

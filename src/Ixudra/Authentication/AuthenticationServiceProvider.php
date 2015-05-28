@@ -5,41 +5,51 @@ use Illuminate\Support\ServiceProvider;
 
 class AuthenticationServiceProvider extends ServiceProvider {
 
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
     protected $defer = false;
 
-    /**
-     * Bootstrap the application events.
-     *
-     * @return void
-     */
+
     public function boot()
     {
-        $this->package('ixudra/authentication');
+        $this->loadTranslationsFrom( __DIR__ .'/../../resources/lang', 'authentication' );
+        $this->loadViewsFrom( __DIR__ .'/../../resources/views', 'authentication' );
+
+        $this->mergeConfigFrom(
+            __DIR__ .'/../../config/acl.php', 'acl'
+        );
+
+        // Publish language files
+        $this->publishes(array(
+            __DIR__ .'/../../resources/lang'                => base_path('resources/lang'),
+        ));
+
+        // Publish views
+        $this->publishes(array(
+            __DIR__ .'/../../resources/views'               => base_path('resources/views/bootstrap'),
+        ));
+
+        // Publish migrations
+        $this->publishes(array(
+            __DIR__ .'/../../database/migrations/'          => base_path('database/migrations')
+        ), 'migrations');
+
+        // Publish configuration files
+        $this->publishes(array(
+            __DIR__ .'/../../config/acl.php'                => config_path('acl.php'),
+        ), 'config');
+
+        // Load package routes
+        include __DIR__ .'/../../routes.php';
+        include __DIR__ .'/../../bindings.php';
     }
 
-    /**
-     * Register the service provider.
-     *
-     * @return void
-     */
     public function register()
     {
         //
     }
 
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
     public function provides()
     {
-        return [];
+        return array('authentication');
     }
 
 }
