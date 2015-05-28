@@ -14,8 +14,8 @@
         </p>
     </div>
 
-    @include('bootstrap.users.filter')
+    @include('authentication::admin.users.filter')
 
-    @include('bootstrap.users.table')
+    @include('authentication::admin.users.table')
 
 @endsection

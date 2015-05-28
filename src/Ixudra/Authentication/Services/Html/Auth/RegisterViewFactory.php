@@ -30,7 +30,7 @@ class AuthViewFactory extends BaseViewFactory {
         $this->addParameter('input', $input);
         $this->addParameter('requiredFields', $requiredFields);
 
-        return $this->makeView('bootstrap.auth.register');
+        return $this->makeView('authentication::auth.register');
     }
 
 }

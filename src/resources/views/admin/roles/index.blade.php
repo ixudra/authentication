@@ -14,8 +14,8 @@
         </p>
     </div>
 
-    @include('bootstrap.roles.filter')
+    @include('authentication::admin.roles.filter')
 
-    @include('bootstrap.roles.table')
+    @include('authentication::admin.roles.table')
 
 @endsection

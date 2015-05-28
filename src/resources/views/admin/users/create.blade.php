@@ -8,6 +8,6 @@
 
 @section('content')
 
-    @include('bootstrap.users.form', array('url' => 'admin/users/', 'method' => 'post', 'input' => $input, 'formId' => 'createUser', 'redirectUrl' => 'admin.users.index', 'redirectParameters' => array()))
+    @include('authentication::admin.users.form', array('url' => 'admin/users/', 'method' => 'post', 'input' => $input, 'formId' => 'createUser', 'redirectUrl' => 'admin.users.index', 'redirectParameters' => array()))
 
 @endsection

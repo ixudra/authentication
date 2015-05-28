@@ -16,7 +16,7 @@ class UserViewFactory extends BaseViewFactory {
             );
         }
 
-        return $this->prepareFilter( 'bootstrap.users.index', $input );
+        return $this->prepareFilter( 'authentication::admin.users.index', $input );
     }
 
     public function create($input = null)
@@ -25,14 +25,14 @@ class UserViewFactory extends BaseViewFactory {
             $input = App::make('\Ixudra\Authentication\Services\Input\UserInputHelper')->getDefaultInput();
         }
 
-        return $this->prepareForm( 'bootstrap.users.create', 'create', $input );
+        return $this->prepareForm( 'authentication::admin.users.create', 'create', $input );
     }
 
     public function show(User $user)
     {
         $this->addParameter('user', $user);
 
-        return $this->makeView( 'bootstrap.users.show' );
+        return $this->makeView( 'authentication::admin.users.show' );
     }
 
     public function edit(User $user, $input = null)
@@ -43,7 +43,7 @@ class UserViewFactory extends BaseViewFactory {
 
         $this->addParameter('user', $user);
 
-        return $this->prepareForm( 'bootstrap.users.edit', 'update', $input );
+        return $this->prepareForm( 'authentication::admin.users.edit', 'update', $input );
     }
 
 

@@ -16,7 +16,7 @@ class AuthViewFactory extends BaseViewFactory {
 
         $this->addParameter('input', $input);
 
-        return $this->makeView('bootstrap.auth.login');
+        return $this->makeView('authentication::auth.login');
     }
 
     public function changeEmail($user, $input = null)
@@ -41,7 +41,7 @@ class AuthViewFactory extends BaseViewFactory {
         $this->addParameter('input', $input);
         $this->addParameter('requiredFields', $requiredFields);
 
-        return $this->makeView('bootstrap.auth.changeEmail');
+        return $this->makeView('authentication::auth.changeEmail');
     }
 
 }

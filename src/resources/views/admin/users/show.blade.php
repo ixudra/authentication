@@ -24,6 +24,4 @@
         </div>
     </div>
 
-    @include('bootstrap.customers.show.customerProjects', array('projects' => $user->customerProjects))
-
 @endsection

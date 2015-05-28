@@ -16,7 +16,7 @@ class PasswordViewFactory extends BaseViewFactory {
         $this->addParameter('user', $user);
         $this->addParameter('requiredFields', $requiredFields);
 
-        return $this->makeView('bootstrap.password.changePassword');
+        return $this->makeView('authentication::password.changePassword');
     }
 
     public function resetPassword($input = null)
@@ -34,7 +34,7 @@ class PasswordViewFactory extends BaseViewFactory {
         $this->addParameter('input', $input);
         $this->addParameter('requiredFields', $requiredFields);
 
-        return $this->makeView('bootstrap.password.resetPassword');
+        return $this->makeView('authentication::password.resetPassword');
     }
 
 }

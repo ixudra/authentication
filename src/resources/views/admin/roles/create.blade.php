@@ -8,6 +8,6 @@
 
 @section('content')
 
-    @include('bootstrap.roles.form', array('url' => 'admin/roles/', 'method' => 'post', 'input' => $input, 'formId' => 'createRole', 'redirectUrl' => 'admin.roles.index', 'redirectParameters' => array()))
+    @include('authentication::admin.roles.form', array('url' => 'admin/roles/', 'method' => 'post', 'input' => $input, 'formId' => 'createRole', 'redirectUrl' => 'admin.roles.index', 'redirectParameters' => array()))
 
 @endsection

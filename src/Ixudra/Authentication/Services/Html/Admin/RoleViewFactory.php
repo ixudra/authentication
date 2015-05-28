@@ -16,7 +16,7 @@ class RoleViewFactory extends BaseViewFactory {
             );
         }
 
-        return $this->prepareFilter( 'bootstrap.roles.index', $input );
+        return $this->prepareFilter( 'authentication::admin.roles.index', $input );
     }
 
     public function create($input = null)
@@ -25,14 +25,14 @@ class RoleViewFactory extends BaseViewFactory {
             $input = App::make('\Ixudra\Authentication\Services\Input\RoleInputHelper')->getDefaultInput();
         }
 
-        return $this->prepareForm( 'bootstrap.roles.create', 'create', $input );
+        return $this->prepareForm( 'authentication::admin.roles.create', 'create', $input );
     }
 
     public function show(Role $role)
     {
         $this->addParameter('role', $role);
 
-        return $this->makeView( 'bootstrap.roles.show' );
+        return $this->makeView( 'authentication::admin.roles.show' );
     }
 
     public function edit(Role $role, $input = null)
@@ -43,7 +43,7 @@ class RoleViewFactory extends BaseViewFactory {
 
         $this->addParameter('role', $role);
 
-        return $this->prepareForm( 'bootstrap.roles.edit', 'update', $input );
+        return $this->prepareForm( 'authentication::admin.roles.edit', 'update', $input );
     }
 
 
